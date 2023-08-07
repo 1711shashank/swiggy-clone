@@ -17,7 +17,15 @@ const container = React.createElement(
     [heading1, heading2]
 );
 
+const HeaderComponent = () => {
+    return (
+        <>
+        <h1> Header from HeaderComponent</h1>
+        </>
+    )
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
-root.render(container);
+root.render(<HeaderComponent/>);
