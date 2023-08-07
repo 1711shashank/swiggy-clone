@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './src/Header';
+import Body from './src/Body';
+import Footer from './src/Footer';
 
 
 
 const AppLayout = () => {
     return (
         <>
-           <Header/>
+            <Header />
+            <Body />
+            <Footer />
         </>
     )
 }
