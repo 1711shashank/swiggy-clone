@@ -6,7 +6,6 @@ const RestaurantCard = ({ restaurantData }) => {
 
     return (
         <>
-
             <div className='w-72 overflow-hidden p-2 m-3 border border-black'>
                 <img className='h-44 object-cover ' src={imageURL} />
                 <p className='text-lg font-bold	'>{name}</p>

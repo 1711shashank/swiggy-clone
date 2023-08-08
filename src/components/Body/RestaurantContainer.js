@@ -1,6 +1,7 @@
 import React from 'react'
 import RestaurantCard from './RestaurantCard'
-import Footer from '../Footer/Footer';
+import Shimmer from '../Shimmer';
+import { Link } from 'react-router-dom';
 
 
 const RestaurantContainer = ({ restaurants, filteredRestaurants }) => {
@@ -13,10 +14,21 @@ const RestaurantContainer = ({ restaurants, filteredRestaurants }) => {
                         <>
                             {
                                 filteredRestaurants.map((restaurant) => (
-                                    <RestaurantCard restaurantData={restaurant} key={restaurant.info.id} />
+                                    <>
+                                        <Link
+                                            to={"/restaurant/" + restaurant.info.id}
+                                            key={restaurant.info.id}
+                                        >
+                                            <RestaurantCard restaurantData={restaurant} />
+
+                                        </Link>
+
+
+                                    </>
+
                                 ))
                             }
-                        </> : <> <Footer /> </>
+                        </> : <Shimmer />
                 }
             </div>
         </>
