@@ -7,7 +7,9 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Error from './components/Error';
 import About from './components/Header/About/About';
+import Profile from './components/Header/About/Profile';
 import Restaurant from './components/Body/Restaurant/Restaurant';
+import ProfileClass from './components/Header/About/ProfileClass';
 
 
 
@@ -32,15 +34,25 @@ const router = createBrowserRouter([
                 element: <Body />
             },
             {
-                path: "/support",
+                path: "support",
                 element: <Support />
             },
             {
-                path: "/about",
-                element: <About />
+                path: "about",
+                element: <About />,
+                children: [
+                    {
+                        path: 'profile',
+                        element: <Profile />
+                    },
+                    {
+                        path: 'profileClass',
+                        element: <ProfileClass />
+                    }
+                ]
             },
             {
-                path: "/restaurant/:restaurantId",
+                path: "restaurant/:restaurantId",
                 element: <Restaurant />
             },
         ]
