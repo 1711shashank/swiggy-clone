@@ -4,6 +4,8 @@ import React, {useState} from 'react'
 const Profile = ({ name }) => {
 
   const [count, setCount] = useState(0);
+
+  console.log('render');
   return (
     <>
       <div>Profile Function Comp</div>

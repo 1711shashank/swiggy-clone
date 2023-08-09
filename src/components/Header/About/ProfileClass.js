@@ -1,42 +1,67 @@
 import React from "react";
 
 class ProfileClass extends React.Component {
-
     constructor(props) {
         super(props);
+        // Create State
         this.state = {
-            count: 0
-        }
-
-        console.log('constructor');
+            userInfo: {
+                name: "Dummy Name",
+                location: "Dummy Location",
+            },
+        };
+        //console.log("Child - Constructor" + this.props.name);
     }
 
-    componentDidMount(){
-        console.log('comppppp did mount')
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            console.log("NAMASTE REACT OP ");
+        }, 1000);
+
+        //console.log("Child - componentDidMount");
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.count !== prevState.count) {
+            //
+        }
+        if (this.state.count2 !== prevState.count2) {
+            // code
+        }
+        console.log("Component Did Update");
+    }
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        //console.log("ComponentWillUnmount");
     }
 
     render() {
-
-        console.log('render');
+        const { count } = this.state;
+        //console.log("Child - render" + this.props.name);
         return (
-            <>
-                <h1>Profile Class Comp</h1>
-                <p>{this.props.name}</p>
-                <p>{this.state.count}</p>
-                <button className="px-2 py-1 bg-gray-400 rounded"
-                    onClick={this.setState({
-                        // count: this.state.count+1
-                    })}
-                >
-                    Count ++
-                </button>
-
-
-
-            </>
-        )
+            <div>
+                <h1> Profile Class Component </h1>
+                <img src={this.state.userInfo.avatar_url} />
+                <h2>Name: {this.state.userInfo.name}</h2>
+                <h2>Location: {this.state.userInfo.location}</h2>
+            </div>
+        );
     }
 }
 
+/**
+ *
+ *  child constructor
+ *  child render
+ *  child componentDidMount
+ *
+ *  API call
+ *  Set State
+ *
+ *  <UPDATE CYCLES>
+ *  render
+ *
+ *
+ */
 
-export default ProfileClass
+export default ProfileClass;
