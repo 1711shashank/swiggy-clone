@@ -20,12 +20,8 @@ const RestaurantContainer = ({ restaurants, filteredRestaurants }) => {
                                             key={restaurant.info.id}
                                         >
                                             <RestaurantCard restaurantData={restaurant} />
-
                                         </Link>
-
-
                                     </>
-
                                 ))
                             }
                         </> : <Shimmer />

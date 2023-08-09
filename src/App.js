@@ -9,7 +9,6 @@ import Error from './components/Error';
 import About from './components/Header/About/About';
 import Profile from './components/Header/About/Profile';
 import Restaurant from './components/Body/Restaurant/Restaurant';
-import ProfileClass from './components/Header/About/ProfileClass';
 
 
 
@@ -44,10 +43,6 @@ const router = createBrowserRouter([
                     {
                         path: 'profile',
                         element: <Profile />
-                    },
-                    {
-                        path: 'profileClass',
-                        element: <ProfileClass />
                     }
                 ]
             },

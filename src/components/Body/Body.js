@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RestaurantContainer from './RestaurantContainer'
 import SearchBar from './SearchBar';
 import Shimmer from '../Shimmer';
+import { FETCH_RESTAURANTS_URL } from '../../helper/staticData';
 
 
 const Body = () => {
@@ -15,7 +16,7 @@ const Body = () => {
 
     const getRestaurants = async () => {
         try {
-            const response = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5779638&lng=88.4649849&page_type=DESKTOP_WEB_LISTING');
+            const response = await fetch(FETCH_RESTAURANTS_URL);
             const data = await response.json();
 
             console.log(data?.data?.cards[2]?.card?.card);

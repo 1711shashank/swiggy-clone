@@ -1,0 +1,3 @@
+export const FETCH_MENU_URL = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&lat=22.5779638&lng=88.4649849&restaurantId=';
+export const FETCH_RESTAURANTS_URL = 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5779638&lng=88.4649849&page_type=DESKTOP_WEB_LISTING';
+export const IMG_CDN_URL =  'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/';

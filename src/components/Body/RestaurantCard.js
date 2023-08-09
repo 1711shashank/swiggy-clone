@@ -1,8 +1,9 @@
 import React from 'react'
+import { IMG_CDN_URL } from '../../helper/staticData';
 
 const RestaurantCard = ({ restaurantData }) => {
     const { name, cloudinaryImageId, avgRating, cuisines, areaName } = restaurantData?.info;
-    const imageURL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" + cloudinaryImageId;
+    const imageURL = IMG_CDN_URL + cloudinaryImageId;
 
     return (
         <>
