@@ -1,69 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Shimmer from '../../Shimmer';
-
-
-const Test = ({ data }) => {
-
-    const temp = data?.card?.card?.itemCards;
-    // console.log(temp);
-
-    return (
-        <>
-            {
-                temp &&
-                <>
-                    {
-                        temp.map((item) => (
-                            <li>{item?.card?.info?.name}</li>
-                        ))
-                    }
-                </>
-                // :<Shimmer/>
-            }
-        </>
-    )
-}
+import FoodCategory from './FoodCategory'
 
 const Restaurant = () => {
     const { restaurantId } = useParams();
-
     const [menu, setMenu] = useState([]);
 
     useEffect(() => {
         getMenuData();
-    })
+    }, []);
 
-    getMenuData = async () => {
+    const getMenuData = async () => {
         const response = await fetch('https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&lat=22.5779638&lng=88.4649849&restaurantId=' + restaurantId);
         const data = await response.json();
-
-        console.log("menu", data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.title);
         setMenu(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-    }
-
+    };
 
     return (
-        <>
-            <div>
+        <div>
+            {
+                menu.slice(2).map((foodCategoryList, index) => (
+                    <div className='m-5 w-96' key={index}>
+                        <FoodCategory foodCategoryList={foodCategoryList}/>
+                    </div>
+                ))
+            }
+        </div>
+    );
+};
 
-                <h1>hhuhu</h1>
-
-                {
-                    menu.map((item) => (
-                        <>
-                        <p>{item?.card?.card?.title}</p>
-                        <Test data={item} />
-
-                        </>
-                    ))
-                }
-
-
-
-            </div>
-        </>
-    )
-}
-
-export default Restaurant
+export default Restaurant;
