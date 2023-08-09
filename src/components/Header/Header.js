@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../../helper/useOnline";
 
 const Header = () => {
 
+    const isOnline = useOnline();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <>
@@ -12,6 +14,9 @@ const Header = () => {
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>
                     <Link to="/support">Support</Link>
+                </div>
+                <div>
+                    {isOnline ? "🟢" : "🔴"}
                 </div>
                 {
                     isLoggedIn

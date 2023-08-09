@@ -14,14 +14,13 @@ const RestaurantContainer = ({ restaurants, filteredRestaurants }) => {
                         <>
                             {
                                 filteredRestaurants.map((restaurant) => (
-                                    <>
-                                        <Link
-                                            to={"/restaurant/" + restaurant.info.id}
-                                            key={restaurant.info.id}
-                                        >
-                                            <RestaurantCard restaurantData={restaurant} />
-                                        </Link>
-                                    </>
+                                    <Link
+                                        to={"/restaurant/" + restaurant.info.id}
+                                        key={restaurant.info.id}
+                                    >
+                                        <RestaurantCard restaurantData={restaurant} />
+                                    </Link>
+
                                 ))
                             }
                         </> : <Shimmer />

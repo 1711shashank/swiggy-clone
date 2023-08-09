@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
@@ -7,8 +7,11 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Error from './components/Error';
 import About from './components/Header/About/About';
-import Profile from './components/Header/About/Profile';
 import Restaurant from './components/Body/Restaurant/Restaurant';
+import Shimmer from './components/Shimmer';
+
+// lazy import
+const Profile = lazy(() => import('./components/Header/About/Profile'));
 
 
 
@@ -42,7 +45,11 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: 'profile',
-                        element: <Profile />
+                        element: (
+                            <Suspense fallback={<Shimmer/>}>
+                                <Profile />
+                            </Suspense>
+                        )
                     }
                 ]
             },
