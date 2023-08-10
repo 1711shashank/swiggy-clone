@@ -9,6 +9,8 @@ import Error from './components/Error';
 import About from './components/Header/About/About';
 import Restaurant from './components/Body/Restaurant/Restaurant';
 import Shimmer from './components/Shimmer';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 // lazy import
 const Profile = lazy(() => import('./components/Header/About/Profile'));
@@ -18,9 +20,11 @@ const Profile = lazy(() => import('./components/Header/About/Profile'));
 const AppLayout = () => {
     return (
         <>
-            <Header />
-            <Outlet />
-            <Footer />
+            <Provider store={store} >
+                <Header />
+                <Outlet />
+                <Footer />
+            </Provider >
         </>
     )
 }
@@ -29,7 +33,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <AppLayout />,
-        errorElement: <Error />,
+        // errorElement: <Error />,
         children: [
             {
                 path: "/",
@@ -46,7 +50,7 @@ const router = createBrowserRouter([
                     {
                         path: 'profile',
                         element: (
-                            <Suspense fallback={<Shimmer/>}>
+                            <Suspense fallback={<Shimmer />}>
                                 <Profile />
                             </Suspense>
                         )

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../../helper/useOnline";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
     const isOnline = useOnline();
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <>
@@ -17,6 +21,9 @@ const Header = () => {
                 </div>
                 <div>
                     {isOnline ? "🟢" : "🔴"}
+                </div>
+                <div>
+                    {cartItems.length} in the Cart
                 </div>
                 {
                     isLoggedIn
