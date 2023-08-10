@@ -10,8 +10,8 @@ const FoodCategory = ({ foodCategoryList }) => {
         <>
             <h1 className='text-lg'>{foodCategory?.title}</h1>
             {
-                foodCategory?.itemCards?.map((foodItem, foodIndex) => (
-                    <FoodCard key={foodIndex} foodDetails={foodItem} />
+                foodCategory?.itemCards?.map((foodItem) => (
+                    <FoodCard key={foodItem?.card?.info?.id} foodDetails={foodItem?.card?.info} />
                 ))
             }
         </>

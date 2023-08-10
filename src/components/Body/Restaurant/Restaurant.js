@@ -10,7 +10,7 @@ const Restaurant = () => {
         <div>
             {
                 menu.slice(2).map((foodCategoryList, index) => (
-                    <div className='m-5 w-96' key={index}>
+                    <div className='m-5 w-1/2vw flex flex-col' key={index}>
                         <FoodCategory foodCategoryList={foodCategoryList}/>
                     </div>
                 ))
