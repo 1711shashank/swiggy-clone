@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { filterData } from '../../helper/helperFunction';
+import { filterRestaurants } from '../../helper/helperFunction';
 
 
 const SearchBar = ({ restaurants, setFilteredRestaurants }) => {
@@ -18,7 +18,7 @@ const SearchBar = ({ restaurants, setFilteredRestaurants }) => {
                 <button
                     className=" px-1 py-1 bg-gray-400 rounded"
                     onClick={() => {
-                        const data = filterData(searchText, restaurants);
+                        const data = filterRestaurants(searchText, restaurants);
                         setFilteredRestaurants(data);
                     }}
                 >
