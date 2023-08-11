@@ -16,7 +16,7 @@ const FoodCard = ({ foodDetails }) => {
                     <li className='w-40 font-extralight text-gray-400'>
                         {foodDetails?.itemAttribute?.vegClassifier}
                     </li>
-                    <li className='w-60 font-extralight text-gray-600 line-clamp-1 leading-snug'>
+                    <li className='w-80 font-extralight text-gray-600 overflow-hidden whitespace-nowrap overflow-ellipsis'>
                         {foodDetails?.name}
                     </li>
                     <li className=' mx-10 list-none	'>

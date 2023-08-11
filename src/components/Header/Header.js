@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../../helper/useOnline";
 import { useSelector } from "react-redux";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Header = () => {
 
@@ -23,7 +24,10 @@ const Header = () => {
                     {isOnline ? "🟢" : "🔴"}
                 </div>
                 <div>
-                    {cartItems.length} in the Cart
+                    <Link to='cart' >
+                        <ShoppingCartIcon />
+                        {cartItems.length ? cartItems.length : ''}
+                    </Link>
                 </div>
                 {
                     isLoggedIn

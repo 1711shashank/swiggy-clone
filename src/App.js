@@ -11,6 +11,7 @@ import Restaurant from './components/Body/Restaurant/Restaurant';
 import Shimmer from './components/Shimmer';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Cart from './components/Header/Cart/Cart';
 
 // lazy import
 const Profile = lazy(() => import('./components/Header/About/Profile'));
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: "support",
                 element: <Support />
+            },
+            {
+                path: "cart",
+                element: <Cart />
             },
             {
                 path: "about",
