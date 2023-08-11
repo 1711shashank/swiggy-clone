@@ -7,8 +7,6 @@ const Restaurant = () => {
 
     const menu = useMenu();
 
-    console.log(menu.length)
-
     return (
         <div>
             {

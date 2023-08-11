@@ -8,7 +8,6 @@ const Header = () => {
 
     const isOnline = useOnline();
     const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (

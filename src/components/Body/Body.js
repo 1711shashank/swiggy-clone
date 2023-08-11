@@ -4,14 +4,15 @@ import SearchBar from './SearchBar';
 import Shimmer from '../Shimmer';
 import { FETCH_RESTAURANTS_URL } from '../../helper/staticData';
 import useOnline from '../../helper/useOnline';
+import { restaurants_localData } from '../../helper/staticData';
 
 
 const Body = () => {
 
     const isOnline = useOnline();
 
-    const [restaurants, setRestaurants] = useState([]);
-    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [restaurants, setRestaurants] = useState(restaurants_localData);
+    const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants_localData);
 
 
     useEffect(() => {
@@ -20,13 +21,17 @@ const Body = () => {
 
     const getRestaurants = async () => {
         try {
-            const response = await fetch(FETCH_RESTAURANTS_URL);
-            const data = await response.json();
+            // const response = await fetch(FETCH_RESTAURANTS_URL);
+            // const data = await response.json();
 
-            // console.log(data?.data?.cards[2]?.card?.card);
+            // console.log(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            // console.log(restaurants);
 
-            setRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            // setRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            // setFilteredRestaurants(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+            setRestaurants(restaurants);
+            setFilteredRestaurants(restaurants);
 
         } catch (error) {
             console.error('Error fetching data:', error);
