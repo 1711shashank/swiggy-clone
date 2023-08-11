@@ -31,8 +31,8 @@ const Header = () => {
                 </div>
                 {
                     isLoggedIn
-                        ? <button className=" px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log In  </button>
-                        : <button className=" px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log Out </button>
+                        ? <button className=" w-24 px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log In  </button>
+                        : <button className=" w-24 px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log Out </button>
                 }
             </div>
         </>

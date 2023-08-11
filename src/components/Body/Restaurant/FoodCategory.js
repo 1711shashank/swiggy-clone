@@ -8,11 +8,16 @@ const FoodCategory = ({ foodCategoryList }) => {
 
     return (
         <>
-            <h1 className='text-lg'>{foodCategory?.title}</h1>
             {
-                foodCategory?.itemCards?.map((foodItem) => (
-                    <FoodCard key={foodItem?.card?.info?.id} foodDetails={foodItem?.card?.info} />
-                ))
+                foodCategory?.itemCards?.length &&
+                <>
+                    <h1 className='text-lg'>{foodCategory?.title} ({foodCategory?.itemCards?.length})</h1>
+                    {
+                        foodCategory?.itemCards?.map((foodItem) => (
+                            <FoodCard key={foodItem?.card?.info?.id} foodDetails={foodItem?.card?.info} />
+                        ))
+                    }
+                </>
             }
         </>
     )
