@@ -1,7 +1,6 @@
-import React from 'react'
-import FoodCategory from './FoodCategory'
-import useMenu from '../../../helper/useMenu';
 import Shimmer from '../../Shimmer';
+import useMenu from '../../../helper/useMenu';
+import FoodCategory from '../Food/FoodCategory'
 
 const Restaurant = () => {
 

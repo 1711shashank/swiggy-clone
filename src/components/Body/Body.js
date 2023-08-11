@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import RestaurantContainer from './RestaurantContainer'
-import SearchBar from './SearchBar';
 import Shimmer from '../Shimmer';
 import useOnline from '../../helper/useOnline';
 import { useOutletContext } from 'react-router-dom';
+import RestaurantContainer from './Restaurant/RestaurantContainer';
 
 
 const Body = () => {
 
-    const {restaurants, filteredRestaurants} = useOutletContext();
-
     const isOnline = useOnline();
+
+    const { restaurants, filteredRestaurants } = useOutletContext();
+    
 
     if (!isOnline) return <h1> You are Offline</h1>
     if (restaurants?.length === 0) return <Shimmer />
@@ -18,7 +17,11 @@ const Body = () => {
 
     return (
         <>
-            <RestaurantContainer restaurants={restaurants} filteredRestaurants={filteredRestaurants} />
+            {
+                filteredRestaurants?.length
+                    ? <RestaurantContainer filteredRestaurants={filteredRestaurants} />
+                    : <Shimmer />
+            }
         </>
     )
 }

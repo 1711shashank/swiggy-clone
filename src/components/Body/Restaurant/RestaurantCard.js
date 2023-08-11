@@ -1,5 +1,4 @@
-import React from 'react'
-import { IMG_CDN_URL } from '../../helper/staticData';
+import { IMG_CDN_URL } from '../../../helper/staticData';
 
 const RestaurantCard = ({ restaurantData }) => {
     const { name, cloudinaryImageId, avgRating, cuisines, areaName } = restaurantData?.info;

@@ -1,20 +1,18 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import Header from './components/Header/Header';
-import Body from './components/Body/Body';
-import Support from './components/Header/Support/Support'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
-import Error from './components/Error';
-import About from './components/Header/About/About';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import Restaurant from './components/Body/Restaurant/Restaurant';
+import Support from './components/Header/Support/Support'
+import { restaurants_localData } from './helper/staticData';
+import About from './components/Header/About/About';
+import Cart from './components/Header/Cart/Cart';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Shimmer from './components/Shimmer';
+import Body from './components/Body/Body';
+import ReactDOM from 'react-dom/client';
+import Error from './components/Error';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import Cart from './components/Header/Cart/Cart';
-import { restaurants_localData } from './helper/staticData';
-
-
 
 // lazy import
 const Profile = lazy(() => import('./components/Header/About/Profile'));
@@ -25,7 +23,6 @@ const AppLayout = () => {
 
     const [restaurants, setRestaurants] = useState(restaurants_localData);
     const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants_localData);
-
 
     useEffect(() => {
         getRestaurants();
@@ -49,6 +46,8 @@ const AppLayout = () => {
             console.error('Error fetching data:', error);
         }
     };
+
+
     return (
         <>
             <Provider store={store} >

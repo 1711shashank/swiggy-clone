@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import { Link, useOutletContext } from "react-router-dom";
-import useOnline from "../../helper/useOnline";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import SearchBar from "../Body/SearchBar";
 import { useSelector } from "react-redux";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SearchBar from "../Body/SearchBar";
 
-const Header = ({restaurants, setFilteredRestaurants}) => {
+
+const Header = ({ restaurants, setFilteredRestaurants }) => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const cartItems = useSelector((store) => store.cart.items);
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return (
         <>
             <div className="flex items-center justify-between px-20 py-2 drop-shadow-md bg-gray-100">
                 <Link to="/">
                     <img className="w-8" src="https://seeklogo.com/images/S/swiggy-logo-8EF8260FA4-seeklogo.com.png" alt="" />
                 </Link>
-                
+
                 <SearchBar restaurants={restaurants} setFilteredRestaurants={setFilteredRestaurants} />
 
                 <div className="space-x-20">
