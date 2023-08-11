@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 
 
 const RestaurantContainer = ({ restaurants, filteredRestaurants }) => {
+
     return (
         <>
             <div className='flex flex-wrap justify-center'>
                 {
-                    restaurants.length
+                    restaurants?.length
                         ?
                         <>
                             {

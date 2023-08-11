@@ -1,8 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./cartSlice";
-import { enableMapSet } from "immer"; // Import enableMapSet
 
-enableMapSet(); 
 const store = configureStore({
     reducer: {
         cart: cartSlice
