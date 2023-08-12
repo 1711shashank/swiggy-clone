@@ -20,9 +20,7 @@ const SearchMenu = ({menu, setFilteredMenu}) => {
             <button
                 className=" px-1 py-1 bg-gray-400 rounded"
                 onClick={() => {
-                    console.log(searchText, menu);
                     const data = filterMenu(searchText, menu);
-                    console.log(data);
                     setFilteredMenu(data);
                 }}
             >
