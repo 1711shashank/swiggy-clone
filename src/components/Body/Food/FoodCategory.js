@@ -1,18 +1,21 @@
 import FoodCard from './FoodCard';
 
-const FoodCategory = ({ foodCategoryList }) => {
+const FoodCategory = ({ foodCategoryList, showVegOnly }) => {
 
     const foodCategory = foodCategoryList?.card?.card;
+
+
 
     return (
         <>
             {
+
                 foodCategory?.itemCards?.length &&
                 <>
-                    <h1 className='text-lg'>{foodCategory?.title} ({foodCategory?.itemCards?.length})</h1>
+                    <h1 className='m-3 text-lg'>{foodCategory?.title} </h1>
                     {
                         foodCategory?.itemCards?.map((foodItem) => (
-                            <FoodCard key={foodItem?.card?.info?.id} foodDetails={foodItem?.card?.info} />
+                            <FoodCard key={foodItem?.card?.info?.id} foodDetails={foodItem?.card?.info} showVegOnly={showVegOnly} />
                         ))
                     }
                 </>

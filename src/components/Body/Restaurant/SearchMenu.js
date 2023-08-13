@@ -6,19 +6,18 @@ import { filterMenu } from '../../../helper/helperFunction';
 const SearchMenu = ({menu, setFilteredMenu}) => {
 
     const [searchText, setSearchText] = useState("");
-
     
     return (
-        <div className='m-1 flex justify-center'>
+        <div className='m-2 flex'>
             <input
-                className="border-black"
+                className=" pl-2 w-80 border border-gray-300 rounded"
                 type="text"
                 placeholder="Search Menu"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
             />
             <button
-                className=" px-1 py-1 bg-gray-400 rounded"
+                className=" search-btn px-4 py-2  bg-green-200 ml-2 rounded-lg"
                 onClick={() => {
                     const data = filterMenu(searchText, menu);
                     setFilteredMenu(data);

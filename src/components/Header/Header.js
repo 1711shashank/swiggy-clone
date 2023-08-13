@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchRestaurants from "./SearchRestaurants";
 import { useSelector } from "react-redux";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
@@ -18,16 +18,16 @@ const Header = ({ restaurants, setFilteredRestaurants }) => {
                     <img className="w-8" src="https://seeklogo.com/images/S/swiggy-logo-8EF8260FA4-seeklogo.com.png" alt="" />
                 </Link>
 
-                <SearchBar restaurants={restaurants} setFilteredRestaurants={setFilteredRestaurants} />
+                <SearchRestaurants restaurants={restaurants} setFilteredRestaurants={setFilteredRestaurants} />
 
-                <div className="space-x-20">
+                <div className="space-x-10 text-gray-600 w-40">
                     <Link to="/">Home</Link>
                     <Link to="/about">About</Link>
                     <Link to="/support">Support</Link>
                 </div>
                 <div>
                     <Link to='cart' >
-                        <ShoppingCartIcon />
+                        <ShoppingCartIcon sx={{color:'#767676'}} />
                         {cartItems.length ? cartItems.length : ''}
                     </Link>
                 </div>
