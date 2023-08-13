@@ -34,8 +34,8 @@ const Header = ({ restaurants, setFilteredRestaurants }) => {
                 <div>
                     {
                         isLoggedIn
-                            ? <button className=" w-24 px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log In  </button>
-                            : <button className=" w-24 px-2 py-1 bg-gray-400 rounded" onClick={() => setIsLoggedIn(!isLoggedIn)}>Log Out </button>
+                            ? <button className=" w-24 search-btn px-4 py-2  bg-green-200 ml-2 rounded-lg " onClick={() => setIsLoggedIn(!isLoggedIn)}>Log In  </button>
+                            : <button className=" w-24 search-btn px-4 py-2  bg-green-200 ml-2 rounded-lg " onClick={() => setIsLoggedIn(!isLoggedIn)}>Log Out </button>
                     }
                 </div>
             </div>

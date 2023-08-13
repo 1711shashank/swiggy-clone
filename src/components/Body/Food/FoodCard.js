@@ -21,7 +21,7 @@ const FoodCard = ({ foodDetails, showVegOnly }) => {
                     <li className='w-80 list-none font-extralight text-gray-600 overflow-hidden whitespace-nowrap overflow-ellipsis'>
                         {foodDetails?.name}
                     </li>
-                    <li className=' mx-10 w-20 list-none'>
+                    <li className='mx-10 w-20 list-none'>
                         ₹ {(foodDetails?.price / 100).toFixed(2)}
                     </li>
                     <button className='w-24 h-9 text-green-600 uppercase border border-gray-300 font-medium rounded' onClick={() => handleAddCart(foodDetails)}>

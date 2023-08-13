@@ -18,25 +18,27 @@ const Cart = () => {
     }, 0)
 
 
+
+
+
     return (
         <>
-            <div>
+            <div className='mt-8 flex flex-col items-center'>
 
                 {
                     cartItems.map((foodDetails) => (
                         <>
-                            <div className='flex my-2'>
-                                <li className='w-40 font-extralight text-gray-400'>
-                                    {foodDetails?.itemAttribute?.vegClassifier}
-                                </li>
+
+                            <div className='flex my-2 items-center'>
+                                <img className='w-5 h-5 mr-3' src={foodDetails?.itemAttribute?.vegClassifier === 'NONVEG' ? 'https://qph.cf2.quoracdn.net/main-qimg-63ca3fefb57ae52e1c1253bc14deddcd' : 'https://qph.cf2.quoracdn.net/main-qimg-5c0e58edbc6cae45deda4c00b82e29ba'} width='100%' />
                                 <li className='w-80 list-none font-extralight text-gray-600 overflow-hidden whitespace-nowrap overflow-ellipsis'>
                                     {foodDetails?.name}
                                 </li>
-                                <li className=' mx-10 w-8 list-none	'>
-                                    {(foodDetails?.price / 100).toFixed(2)}
+                                <li className=' mx-10 w-20 list-none'>
+                                    ₹ {(foodDetails?.price / 100).toFixed(2)}
                                 </li>
-                                <button className=' w-52 px-2 py-1 bg-blue-200 rounded' onClick={() => handleRemoveCart(foodDetails)}>
-                                    Remove from Cart
+                                <button className='w-24 h-9 text-green-600  border border-gray-300 rounded' onClick={() => handleRemoveCart(foodDetails)}>
+                                    Remove
                                 </button>
                             </div>
                         </>
@@ -45,17 +47,17 @@ const Cart = () => {
                 {
                     cartItems.length
                         ?
-                        <div className='flex my-2'>
-                            <li className='w-80 list-none'>
+                        <div className='flex my-2 items-center'>
+                            <li className='w-72 list-none'>
                             </li>
-                            <li className='w-40 list-none'>
+                            <li className='w-16 list-none'>
                                 Total
                             </li>
-                            <li className=' mx-10 w-8 list-none	'>
-                                {(totalAmount / 100).toFixed(2)}
+                            <li className='mx-10 w-20 list-none'>
+                                ₹ {(totalAmount / 100).toFixed(2)}
                             </li>
 
-                            <button className='w-52 px-5 py-1 bg-green-300 rounded'>
+                            <button className='w-24 h-9 bg-green-200 rounded'>
                                 Checkout
                             </button>
                         </div>
